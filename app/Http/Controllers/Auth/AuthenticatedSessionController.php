@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,6 +30,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $this->ensureNotLogged($request);
+
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -36,6 +40,14 @@ class AuthenticatedSessionController extends Controller
         Auth::user()->save();
 
         return redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+    public function ensureNotLogged(Request $request)
+    {
+        //dd(User::where('email', $request->email)->first()->logged == 1);
+        if (User::where('email', $request->email)->first()->logged == 1) {
+                abort(404, 'logged yet');
+        }
     }
 
     /**

@@ -25,5 +25,6 @@ Route::group(
         Route::get('/users/list', [AdminController::class, 'users'])->name('admin.users.list');
         Route::get('/events/list', [AdminController::class, 'events'])->name('admin.events.list');
         Route::get('/events/create', [AdminController::class, 'createEvent'])->name('admin.events.create');
+        Route::post('/events/create', [AdminController::class, 'storeEvent'])->name('admin.events.store');
     }
 );

@@ -83,25 +83,25 @@ jQuery(document).ready(function($) {
     }
 
     // === Footer Instagram Slider ===
-    var feedFooter = new Instafeed({
-        get: 'user',
-        userId: 2270734710, // your user id
-        accessToken: '2270734710.38c1284.f5b72cce5cc54bbc8dbacb7d3436e1ce', // your access token
-        sortBy: 'most-liked',
-        template: '<div><a href="{{link}}" target="_blank"><img class="img-responsive" src="{{image}}" /></a></div>',
-        target: 'instagram-carousel',
-        limit: 9,
-        resolution: 'low_resolution',
-        after: function () {
-            $('#instagram-carousel').owlCarousel({
-                items: 6,
-                navigation: false,
-                pagination: false,
-                autoPlay: 4000
-            });
-        }
-    });
-    feedFooter.run();
+        /*var feedFooter = new Instafeed({
+            get: 'user',
+            userId: 2270734710, // your user id
+            accessToken: '2270734710.38c1284.f5b72cce5cc54bbc8dbacb7d3436e1ce', // your access token
+            sortBy: 'most-liked',
+            template: '<div><a href="{{link}}" target="_blank"><img class="img-responsive" src="{{image}}" /></a></div>',
+            target: 'instagram-carousel',
+            limit: 9,
+            resolution: 'low_resolution',
+            after: function () {
+                $('#instagram-carousel').owlCarousel({
+                    items: 6,
+                    navigation: false,
+                    pagination: false,
+                    autoPlay: 4000
+                });
+            }
+        });
+        feedFooter.run();*/
 
     // === Home Slider ===
     $('#home-slider').owlCarousel({
@@ -138,7 +138,8 @@ jQuery(document).ready(function($) {
     // === Countdown track.html config ===
     if ($('#countdown-2').length>0) {
         $("#countdown-2").countdown({
-            date: "12 november 2016 12:00:00", // Edit this line
+            // date: "12 november 2022 12:00:00", // Edit this line
+            date: $("#nextConcert").text(), // Edit this line
             format: "on"
         },
         function() {

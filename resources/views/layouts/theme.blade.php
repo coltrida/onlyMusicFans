@@ -82,7 +82,6 @@
 
 <!-- ======== JavaScript ======== -->
 <script type="text/javascript" src="{{asset('assets/js/jquery-1.11.1.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/smooth-scroll.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery.fitvids.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/owl-carousel/owl.carousel.min.js')}}"></script>

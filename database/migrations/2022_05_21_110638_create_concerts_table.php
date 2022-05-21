@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->date('concert_date');
-            $table->string('place');
+            $table->time('concert_start_time');
+            $table->string('city');
+            $table->string('address');
             $table->string('artist');
             $table->float('cost');
             $table->timestamps();

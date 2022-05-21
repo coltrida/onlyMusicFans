@@ -55,6 +55,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTrialEndsAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $role
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
  */
 class User extends Authenticatable
 {

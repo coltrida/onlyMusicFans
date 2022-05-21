@@ -50,7 +50,7 @@
         <!-- Nav Container -->
         <div class="nav-container">
             <ul id="main-nav" class="main-nav nav">
-                <li><a class="scrollTo" href="{{route('index')}}">Home</a></li>
+                <li><a href="{{route('index')}}">Home</a></li>
                 <li><a class="scrollTo" href="#albums">Albums</a></li>
                 <li><a class="scrollTo" href="#events">Events</a></li>
                 <li><a class="scrollTo" href="#galleryId">Gallery</a></li>

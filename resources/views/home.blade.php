@@ -191,62 +191,52 @@
                 <p>We have some events that you dont want to miss this summer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
             </div>
             <!-- Event 1 -->
-            <div class="row event">
-                <div class="col-xs-6 col-sm-2 date-container">
-                    <i class="fa fa-calendar"></i>
-                    <span class="date">12 OCT <br> 2016</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 name-container">
-                    <img src="{{asset('assets/img/events/ev-1.jpg')}}" alt="event">
-                    <h4>Celebrating <br>Alpha Opening</h4>
-                </div>
-                <div class="col-xs-6 col-sm-3 location-container">
-                    <i class="fa fa-map-marker"></i>
-                    <span class="location">Piata Unirii, <br>Bucuresti</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 button-div">
-                    <a href="#">Buy Ticket</a>
-                </div>
-
-                <div class="col-xs-12 info-extended">
-                    <div class="info-wrapper row">
-                        <div class="col-sm-3">
-                            <img src="{{asset('assets/img/events/big-ev-1.jpg')}}" alt="Ev" class="img-responsive">
-                        </div>
-                        <div class="col-sm-9 info">
-                            <ul class="clearfix">
-                                <li>
-                                    <span>Artists :</span>
-                                    <span>Rihanna, Jennifer Lopez</span>
-                                </li>
-                                <li>
-                                    <span>Special Guest :</span>
-                                    <span>Pitbull</span>
-                                </li>
-                                <li>
-                                    <span>Starting at :</span>
-                                    <span>08 PM</span>
-                                </li>
-                                <li>
-                                    <span>Lorem Ipsum :</span>
-                                    <span>Dolor sit amet</span>
-                                </li>
-                                <li>
-                                    <span>Tickets Remaining :</span>
-                                    <span>124</span>
-                                </li>
-                                <li>
-                                    <span>Price :</span>
-                                    <span>15$</span>
-                                </li>
-                            </ul>
-                        </div>
+            @foreach($concerts as $item)
+                <div class="row event">
+                    <div class="col-xs-6 col-sm-2 date-container">
+                        <i class="fa fa-calendar"></i>
+                        <span class="date">{{$item->day_month}} <br> {{$item->year}}</span>
                     </div>
-                    <i class="fa fa-angle-double-down open-icon"></i>
+                    <div class="col-xs-6 col-sm-4 name-container">
+                        <img src="{{$item->path}}" alt="event" style="height: 50px">
+                        <h4>{{$item->title}}</h4>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 location-container">
+                        <i class="fa fa-map-marker"></i>
+                        <span class="location">{{$item->address}} <br>{{$item->city}}</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 button-div">
+                        <a href="#">Buy Ticket</a>
+                    </div>
+
+                    <div class="col-xs-12 info-extended">
+                        <div class="info-wrapper row">
+                            <div class="col-sm-3">
+                                <img src="{{$item->path}}" alt="Ev"  style="height: 200px">
+                            </div>
+                            <div class="col-sm-9 info">
+                                <ul class="clearfix">
+                                    <li>
+                                        <span>Artists :</span>
+                                        <span>{{$item->artist}}</span>
+                                    </li>
+                                    <li>
+                                        <span>Starting at :</span>
+                                        <span>{{$item->concert_houre}}</span>
+                                    </li>
+                                    <li>
+                                        <span>Price :</span>
+                                        <span>{{$item->cost}}$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <i class="fa fa-angle-double-down open-icon"></i>
+                    </div>
                 </div>
-            </div>
+            @endforeach
             <!-- Event 2 -->
-            <div class="row event">
+{{--            <div class="row event">
                 <div class="col-xs-6 col-sm-2 date-container">
                     <i class="fa fa-calendar"></i>
                     <span class="date">27 OCT <br> 2016</span>
@@ -464,7 +454,7 @@
                     </div>
                     <i class="fa fa-angle-double-down open-icon"></i>
                 </div>
-            </div>
+            </div>--}}
             <div class="button-container">
                 <a href="events.html" class="button">All Events <i class="fa fa-list"></i></a>
             </div>
@@ -472,7 +462,8 @@
     </div>
 
     <!-- Next Event -->
-    <div class="countdown-section">
+    @if($nextConcert)
+        <div class="countdown-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text">
@@ -482,7 +473,7 @@
                     <!-- Countdown -->
                     <ul id="countdown-2" class="countdown-2">
                         <li>
-                            <span class="days">00</span>
+                            <span class="days" id="nextConcert">{{$nextConcert}}</span>
                             <p class="timeRefDays">days</p>
                         </li>
                         <li>
@@ -502,6 +493,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <!-- Photo Gallery -->
     <div id="galleryId" class="photo-gallery">
@@ -529,7 +521,7 @@
                 <iframe src="https://player.vimeo.com/video/24042544?color=ed145b&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="281" allowfullscreen></iframe>
             </div>
             <div class="col-sm-6 embed-video">
-                <iframe src="https://player.vimeo.com/video/25017978?color=ed145b&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="281" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/KuHyQZx7nOg?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 

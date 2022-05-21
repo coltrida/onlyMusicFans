@@ -60,7 +60,9 @@
                 <li class="has-submenu">
                     <a href="#">{{auth()->user()->name}} <i class="fa fa-angle-down"></i></a>
                     <ul class="submenu">
-{{--                        <li><a href="album-single.html">Album Single</a></li>--}}
+                        @if(auth()->user()->isAdmin())
+                            <li><a href="{{route('admin.index')}}">Dashboard</a></li>
+                        @endif
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

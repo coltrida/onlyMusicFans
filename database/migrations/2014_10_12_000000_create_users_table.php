@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
+            $table->string('role')->default('user');
             $table->string('phone')->nullable();
             $table->boolean('logged')->default(1);
             $table->boolean('payed')->default(0);

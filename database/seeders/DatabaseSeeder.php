@@ -15,6 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
+        if (\Storage::disk('public')->exists('/concert/')) {
+            \Storage::disk('public')->deleteDirectory('/concert/');
+        }
+
+       // \Storage::makeDirectory('/concert');
+        /*\Artisan::call('cache:clear');
+        \Artisan::call('view:clear');
+        \Artisan::call('route:clear');*/
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

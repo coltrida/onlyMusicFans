@@ -14,6 +14,16 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::group(
+    [
+        'middleware' => ['auth'],
+    ],
+    function(){
+        Route::get('/payment/{idConcert}', [FrontController::class, 'payment'])->name('payment');
+        Route::post('/payment', [FrontController::class, 'paymentPost'])->name('paymentPost');
+    }
+);
+
 
 Route::group(
     [

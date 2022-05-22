@@ -79,7 +79,7 @@
 <!-- Go to top button -->
 <div class="back-to-top fa fa-angle-up"></div>
 
-
+@section('footer')
 <!-- ======== JavaScript ======== -->
 <script type="text/javascript" src="{{asset('assets/js/jquery-1.11.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/bootstrap.js')}}"></script>
@@ -207,5 +207,6 @@
         });
     });//end .ready
 </script>
+@show
 </body>
 </html>

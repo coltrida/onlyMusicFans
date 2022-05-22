@@ -22,7 +22,7 @@
                     <span class="location">{{$item->address}} <br><b>{{$item->city}}</b></span>
                 </div>
                 <div class="col-xs-6 col-sm-3 button-div">
-                    <a href="#">Buy Ticket</a>
+                    <a href="{{route('payment', $item->id)}}">Buy Ticket</a>
                 </div>
 
                 <div class="col-xs-12 info-extended">

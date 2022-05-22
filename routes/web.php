@@ -3,10 +3,10 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
 
-Route::get('/', [FrontController::class, 'index'])->name('index');
 
-Route::get('subscribe', [FrontController::class, 'subscribe'])->name('subscribe');
-Route::post('subscribe', [FrontController::class, 'subscribePost'])->name('subscribe.post');
+Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::post('/contact/mail', [FrontController::class, 'contactMail'])->name('contact.mail.post');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

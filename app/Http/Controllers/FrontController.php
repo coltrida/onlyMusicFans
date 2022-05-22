@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Concert;
 use App\Services\ConcertService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Mail;
 
 class FrontController extends Controller
 {
@@ -65,6 +66,17 @@ class FrontController extends Controller
             \Session::flash ( 'fail-message', $e->get_message() );
             return view ( 'cardForm', ['idConcert' => $request->idConcert] );
         }
+    }
+
+    public function contactMail(Request $request)
+    {
+        Mail::to('coltrida@gmail.com')->send(new ContactMail(
+            $request->name,
+            $request->email,
+            $request->about,
+            $request->message,
+        ));
+        return redirect()->back();
     }
 
 }

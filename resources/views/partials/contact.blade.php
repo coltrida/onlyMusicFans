@@ -7,7 +7,8 @@
     </div>
 
     <div class="container">
-        <form action="contact.php" method="post" name="contact" id="contact-form">
+        <form action="{{route('contact.mail.post')}}" method="post">
+            @csrf
             <div class="field">
                 <p>Name <span class="colored">*</span></p>
                 <input name="name" type="text" class="required" title="Please type your name." placeholder="Name...">

@@ -15,6 +15,7 @@
             <th scope="col">Start</th>
             <th scope="col">Cost</th>
             <th scope="col">Photo</th>
+            <th scope="col">Video</th>
         </tr>
         </thead>
         <tbody>
@@ -30,6 +31,17 @@
                 <td style="vertical-align: middle;">{{$item->cost}}</td>
                 <td style="vertical-align: middle;">
                     <img src="{{$item->path}}" alt="Concert Photo" width="50">
+                </td>
+                <td>
+                    @if(
+                        Storage::disk('public')->exists('/video/'.$item->id.'.mp4') ||
+                        Storage::disk('public')->exists('/video/'.$item->id.'.avi')
+                        )
+                        <a href="{{route('admin.video.play', $item->id)}}">
+                            <i class="fa fa-play"></i>
+                        </a>
+
+                    @endif
                 </td>
             </tr>
         @endforeach

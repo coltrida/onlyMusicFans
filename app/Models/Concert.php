@@ -72,6 +72,17 @@ class Concert extends Model
         return '/storage/concert/'.$this->id.'.jpg';
     }
 
+    public function getVideoAttribute()
+    {
+        $video = '';
+        if (\Storage::disk('public')->exists('/video/'.$this->id.'.mp4')) {
+            $video = '/storage/video/'.$this->id.'.mp4';
+        } else if (\Storage::disk('public')->exists('/video/'.$this->id.'.avi')) {
+            $video = '/storage/video/'.$this->id.'.avi';
+        }
+        return $video;
+    }
+
     public function getDateForCountdownAttribute()
     {
         return Carbon::make($this->concert_date.' '.$this->concert_start_time)->format('d M Y H:m:s');

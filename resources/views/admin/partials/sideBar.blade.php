@@ -28,7 +28,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 {{--<h6 class="collapse-header">Custom Components:</h6>--}}
                 <a class="collapse-item" href="{{route('admin.events.list')}}">List</a>
-                <a class="collapse-item" href="{{route('admin.events.create')}}">Create</a>
+                <a class="collapse-item" href="{{route('admin.events.create')}}">Create Event</a>
+                <a class="collapse-item" href="{{route('admin.video.create')}}">Upload Video</a>
             </div>
         </div>
     </li>

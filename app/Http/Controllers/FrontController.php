@@ -76,6 +76,11 @@ class FrontController extends Controller
             $request->about,
             $request->message,
         ));
+      //  notify()->success('Laravel Notify is awesome!');
+        notify()->preset('user-updated', ['title' => 'This is the overridden title', 'position' => 'center-top']);
+        //connectify('success', 'Connection Found', 'Success Message Here');
+        //emotify('success', 'You are awesome, your data was successfully created');
+       // drakify('success');
         return redirect()->back();
     }
 

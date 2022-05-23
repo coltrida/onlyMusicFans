@@ -35,6 +35,9 @@ Route::group(
         Route::get('/users/list', [AdminController::class, 'users'])->name('admin.users.list');
         Route::get('/events/list', [AdminController::class, 'events'])->name('admin.events.list');
         Route::get('/events/create', [AdminController::class, 'createEvent'])->name('admin.events.create');
+        Route::get('/video/create', [AdminController::class, 'createVideo'])->name('admin.video.create');
         Route::post('/events/create', [AdminController::class, 'storeEvent'])->name('admin.events.store');
+        Route::post('/video/create', [AdminController::class, 'storeVideo'])->name('admin.video.store');
+        Route::get('/video/{idConcert}', [AdminController::class, 'video'])->name('admin.video.play');
     }
 );

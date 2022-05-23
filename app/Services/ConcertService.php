@@ -25,6 +25,13 @@ class ConcertService
         $file->storeAs('/public/concert/', $filename);
     }
 
+    public function storeVideo($request)
+    {
+        $file = $request->file('video_thumb');
+        $filename = $request->concertId . '.' . $file->extension();
+        $file->storeAs('/public/video/', $filename);
+    }
+
     public function createPayment($idConcert)
     {
         $concerto = Concert::find($idConcert);

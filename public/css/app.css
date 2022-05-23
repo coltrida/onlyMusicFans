@@ -1377,3 +1377,8 @@ select {
   }
 }
 
+.notify{
+    align-items: flex-end;!important;
+    margin-top: 100px!important;
+}
+
